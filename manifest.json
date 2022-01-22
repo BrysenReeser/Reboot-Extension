@@ -18,6 +18,7 @@
       },
     "content_scripts": [{
         "css": ["styles.css"],
+        "matches": ["http://*"],
         "js": ["content.js"]
       }]
 }
