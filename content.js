@@ -12,4 +12,5 @@ rebootButton.addEventListener("click", async () => {
   // current page
   function rebootPage() {
     // perform reboot page logic 
+    console.log("Rebooting page!")
   }
