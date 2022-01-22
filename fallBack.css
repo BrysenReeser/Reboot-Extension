@@ -1,0 +1,12 @@
+body {background-color: coral !important;}
+
+.main-page-content {
+    background-color: coral !important;
+}
+:any-link {
+  color: green !important;
+}
+#css {
+    color: green !important;
+    background-color: green !important;
+}

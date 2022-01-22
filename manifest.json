@@ -21,5 +21,11 @@
     "content_scripts": [{
         "css": ["styles.css"],
         "matches": ["<all_urls>"]
-      }]
+      }],
+    "web_accessible_resources": [
+      {
+        "resources": ["fallBack.css"],
+        "matches":["<all_urls>"]
+      }
+    ]
 }

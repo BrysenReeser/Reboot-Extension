@@ -11,7 +11,17 @@ rebootButton.addEventListener("click", async () => {
   // The body of this function will be executed as a content script inside the
   // current page
   function rebootPage() {
-    console.log("hello world")
+    var element = document.querySelector('#insertedStylesheet');
+    if (element) {
+      element.parentElement.removeChild(element);
+      console.log("Unbooted");
+    } else {
+      document.head.insertAdjacentHTML('beforeend',
+      '<link id="insertedStylesheet" rel="stylesheet" type="text/css" href="' + 
+              chrome.runtime.getURL("fallBack.css") + '">'
+      );
+      console.log("Rebooted");
+    }
   }
 
   const userAction = async (url, year) => {
