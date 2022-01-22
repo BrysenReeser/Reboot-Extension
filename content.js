@@ -19,6 +19,8 @@ rebootButton.addEventListener("click", async () => {
   // The body of this function will be executed as a content script inside the
   // current page
   function rebootPage() {
+    var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
+    myAudio.play();
     var element = document.querySelector('#insertedStylesheet');
     if (element) {
       element.parentElement.removeChild(element);
@@ -32,6 +34,8 @@ rebootButton.addEventListener("click", async () => {
     }
   }
   function retroPage() {
+    var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
+    myAudio.play();
     var element = document.querySelector('#insertedStylesheet');
     if (element) {
       element.parentElement.removeChild(element);

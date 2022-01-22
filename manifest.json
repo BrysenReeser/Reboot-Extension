@@ -24,7 +24,7 @@
       }],
     "web_accessible_resources": [
       {
-        "resources": ["fallBack.css"],
+        "resources": ["fallBack.css","80sRiff.wav"],
         "matches":["<all_urls>"]
       }
     ]
