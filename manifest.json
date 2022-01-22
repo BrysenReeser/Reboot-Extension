@@ -1,9 +1,21 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 3,
     "name": "Reboot",
     "description": "Reboot any webpage to the oldest css!",
     "version": "1.0.0",
     "author": "Grace Clausen, Brysen Reeser, Bridget Peterkin, Gabriel Clark",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": {
+        "default_popup":"popup.html",
+        "default_icon": {
+          "16": "RebootLogoFinal.png",
+          "32": "RebootLogoLarge.png"
+        }
+      },
+      "icons": {
+        "16": "RebootLogoFinal.png",
+        "32": "RebootLogoLarge.png"
+      },
     "content_scripts": [{
         "css": ["styles.css"],
         "js": ["content.js"]
