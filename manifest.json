@@ -9,12 +9,14 @@
         "default_popup":"popup.html",
         "default_icon": {
           "16": "RebootLogoFinal.png",
-          "32": "RebootLogoLarge.png"
+          "32": "RebootLogoLarge.png",
+          "210": "LargeLogo.png"
         }
       },
       "icons": {
         "16": "RebootLogoFinal.png",
-        "32": "RebootLogoLarge.png"
+        "32": "RebootLogoLarge.png",
+        "210": "LargeLogo.png"
       },
     "content_scripts": [{
         "css": ["styles.css"],
