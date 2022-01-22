@@ -1,0 +1,7 @@
+{
+    "manifest_version": 1,
+    "name": "Reboot",
+    "description": "Reboot any webpage to the oldest css!",
+    "version": "1.0.0",
+    "author": "Grace Clausen, Brysen Reeser, Bridget Peterkin, Grace Clausen"
+  }
