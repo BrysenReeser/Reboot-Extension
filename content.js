@@ -1,49 +1,58 @@
-// js file for project
+
+/**
+ * various global variables used to manage state
+ */
 let soundOn = true;
 var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
-
 let imageshown = "soundOn.png"
 document.getElementById('soundButton').src = imageshown;
 
+/**
+ * Funciton call to activate song in param
+ * @param {mp3 or wav file} toons 
+ */
+function audioManagement(toons) {
+  if(soundOn){
+    myAudio.pause()
+    myAudio = new Audio(chrome.runtime.getURL(toons));
+    myAudio.play();
+  }
+}
+
+/**
+ *  Button used for relaunching the webpage to an older version
+ */
 navigator.serviceWorker.register('background.js').then(x=>console.log('done', x))
 BackInTime.addEventListener("click", async () => {
 
     console.log("button clicked!");
     if(BackInTime.innerText === "Rewind this page!") {
-      if(soundOn){
-        myAudio.pause()
-        myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
-        myAudio.play();
-      }
+      audioManagement("80sRiff.wav")
       chrome.runtime.sendMessage("Rewind this page!", function (response) {});
       BackInTime.innerText = "Back to the future!"
     }else {
-      if(soundOn){
-        myAudio = new Audio(chrome.runtime.getURL("backToTheFutureSong.wav"));
-        myAudio.play();
-      }
+      audioManagement("backToTheFutureSong.wav")
       chrome.runtime.sendMessage("Back to the future!", function (response) {});
       BackInTime.innerText = "Rewind this page!"
     }
     removeTheBar()
   });
 
-  
+  /**
+   * self explanitiory
+   */
   jamButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if(soundOn){
-      myAudio.pause()
-      myAudio = new Audio(chrome.runtime.getURL("retroJam3.mp3"));
-      myAudio.play();
-    }
+    audioManagement("retroJam3.mp3")
   });
+
+  /**
+   * Button for changing background of page 
+   */
   retroButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if(soundOn){
-      myAudio.pause()
-      myAudio = new Audio(chrome.runtime.getURL("retroJam1.wav"));
-      myAudio.play();
-    }
+    audioManagement("retroJam1.wav")
+
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       function: retroPage,
@@ -65,6 +74,10 @@ BackInTime.addEventListener("click", async () => {
       console.log("Rebooted");
     }
   }
+
+  /**
+   * 
+   */
   function retroPage() {
     var element = document.querySelector('#insertedStylesheet');
     /*
@@ -100,6 +113,9 @@ BackInTime.addEventListener("click", async () => {
     }
   }
 
+  /**
+   * Manages audio toggle
+   */
   soundButton.addEventListener("click", async () => {
     if (soundOn) {
       myAudio.pause();
@@ -113,7 +129,9 @@ BackInTime.addEventListener("click", async () => {
     document.getElementById('soundButton').src = imageshown;
 });
 
-  
+  /**
+   * Please work. This bar is hell spawn
+   */
   function removeTheBar(){
     var element = document.querySelector('#insertedStylesheet');
     if (element) {
@@ -127,13 +145,14 @@ BackInTime.addEventListener("click", async () => {
       console.log("Rebooted");
   }
 }
-  const userAction = async (url, year) => {
-    var realUrl = "http://archive.org/wayback/available?url=" + url +"&timestamp="+year+ "0101"
 
-    const response = await fetch(realUrl);
-    const bodyJson = await response.json(); 
-    if(bodyJson.archived_snapshots.closest.status == 200){
-            return bodyJson.archived_snapshots.closest.url
-        }
-    return url
-  }
+const userAction = async (url, year) => {
+  var realUrl = "http://archive.org/wayback/available?url=" + url +"&timestamp="+year+ "0101"
+
+  const response = await fetch(realUrl);
+  const bodyJson = await response.json(); 
+  if(bodyJson.archived_snapshots.closest.status == 200){
+          return bodyJson.archived_snapshots.closest.url
+      }
+  return url
+}
