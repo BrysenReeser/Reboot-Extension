@@ -1,7 +1,6 @@
 // js file for project
 let soundOn = true;
 var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
-var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
 var SONG = 0;
 let imageshown = "soundOn.png"
 document.getElementById('soundButton').src = imageshown;
@@ -28,10 +27,8 @@ BackInTime.addEventListener("click", async () => {
     }
     removeTheBar()
   });
-
-  
   jamButton.addEventListener("click", async () => {
-    var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
+    var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3","retrojam4.wav","retrojam5.wav","retrojam6.wav"]
     if(soundOn){
       SONG = (SONG + 1) % bops.length;
       myAudio.pause()
