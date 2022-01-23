@@ -25,6 +25,7 @@ BackInTime.addEventListener("click", async () => {
       chrome.runtime.sendMessage("Back to the future!", function (response) {});
       BackInTime.innerText = "Rewind this page!"
     }
+    removeTheBar()
   });
 
   soundButton.addEventListener("click", async () => {
@@ -106,6 +107,20 @@ rebootButton.addEventListener("click", async () => {
     }
   }
 
+  
+  function removeTheBar(){
+    var element = document.querySelector('#insertedStylesheet');
+    if (element) {
+      element.parentElement.removeChild(element);
+      console.log("Unbooted");
+    } else {
+      document.head.insertAdjacentHTML('beforeend',
+      '<link id="insertedStylesheet" rel="stylesheet" type="text/css" href="' + 
+              chrome.runtime.getURL("bar.css") + '">'
+      );
+      console.log("Rebooted");
+  }
+}
   const userAction = async (url, year) => {
     var realUrl = "http://archive.org/wayback/available?url=" + url +"&timestamp="+year+ "0101"
 

@@ -31,6 +31,7 @@ chrome.runtime.onMessage.addListener((request, sender, reply) => {
                   }
                   (async () => {
                     var j = await userAction(activeTab.url, "2005")
+                    
                     console.log(j)
                   })()
         
@@ -42,4 +43,27 @@ chrome.runtime.onMessage.addListener((request, sender, reply) => {
         }
 
 });
+// chrome.webNavigation.onDOMContentLoaded.addListener(function(details) {
 
+//   retroPage()
+  
+// });
+
+//   chrome.webNavigation.onCompleted.onReferenceFragmentUpdated(function(details) {
+//     if (changeInfo.status == 'complete') {
+
+//     retroPage()
+//     }
+//   });
+
+
+//   function retroPage() {
+
+//       document.head.insertAdjacentHTML('beforeend',
+//       '<link id="insertedStylesheet" rel="stylesheet" type="text/css" href="' + 
+//               chrome.runtime.getURL("bar.css") + '">'
+//       );
+
+//       console.log("Rebooted");
+    
+//   }

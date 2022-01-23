@@ -16,6 +16,11 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
 }* {
   cursor: url("./assets/cursor.png"), auto !important;
 }
+#wm-ipp-base{
+  display: 'none' !important;
+  visibility:hidden;
+  height:0
+}
 
 /*
 chrome.runtime.getURL("assets/cursor.png")
