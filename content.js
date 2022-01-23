@@ -1,6 +1,7 @@
 // js file for project
 let soundOn = true;
 var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
+var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
 
 let imageshown = "soundOn.png"
 document.getElementById('soundButton').src = imageshown;
@@ -30,19 +31,24 @@ BackInTime.addEventListener("click", async () => {
 
   
   jamButton.addEventListener("click", async () => {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
+    let i = 0
     if(soundOn){
       myAudio.pause()
-      myAudio = new Audio(chrome.runtime.getURL("retroJam3.mp3"));
+      myAudio = new Audio(chrome.runtime.getURL(bops[0]));
       myAudio.play();
     }
   });
   retroButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if(soundOn){
+    if(soundOn && retroButton.innerText == "Retro-fy this page!"){
       myAudio.pause()
       myAudio = new Audio(chrome.runtime.getURL("retroJam1.wav"));
       myAudio.play();
+      retroButton.innerText = "Back to boring"
+    }else {
+      myAudio.pause()
+      retroButton.innerText = "Retro-fy this page!"
     }
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
@@ -71,7 +77,7 @@ BackInTime.addEventListener("click", async () => {
     var vaporwaveElement = document.querySelector("#insertVaporwaveStylesheet");
     var vaporwaveWrapper = document.querySelector("#window");
     */
-    if (element) {
+    if (element) {  
       element.parentElement.removeChild(element);
       /*
       vaporwaveElement.parentElement.removeChild(vaporwaveElement);
