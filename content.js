@@ -1,13 +1,16 @@
 // js file for project
 navigator.serviceWorker.register('background.js').then(x=>console.log('done', x))
 BackInTime.addEventListener("click", async () => {
-    var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
-    myAudio.play();
+
     console.log("button clicked!");
     if(BackInTime.innerText === "Rewind this page!") {
+      var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
+      myAudio.play();
       chrome.runtime.sendMessage("Rewind this page!", function (response) {});
       BackInTime.innerText = "Back to the future!"
     }else {
+      var myAudio = new Audio(chrome.runtime.getURL("backToTheFutureSong.m4a"));
+      myAudio.play();
       chrome.runtime.sendMessage("Back to the future!", function (response) {});
       BackInTime.innerText = "Rewind this page!"
     }
