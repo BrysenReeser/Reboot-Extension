@@ -1,7 +1,18 @@
 // js file for project
+var soundOn = true;
+var imageshown = "soundOn.png"
+document.getElementById('soundButton').src = imageshown;
+
+function audioFeature() {
+  if(soundOn){
+    var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
+    myAudio.play();
+  }
+}
+
 navigator.serviceWorker.register('background.js').then(x=>console.log('done', x))
 BackInTime.addEventListener("click", async () => {
-
+    audioFeature()
     console.log("button clicked!");
     if(BackInTime.innerText === "Rewind this page!") {
       var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
@@ -15,6 +26,17 @@ BackInTime.addEventListener("click", async () => {
       BackInTime.innerText = "Rewind this page!"
     }
   });
+
+  soundButton.addEventListener("click", async () => {
+  soundOn = !soundOn;
+  if(imageshown == "soundOn.png"){
+    imageshown = "soundOff.png";
+  } else {
+    imageshown = "soundOn.png";
+  }
+  document.getElementById('soundButton').src = imageshown;
+});
+  
 rebootButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   
@@ -35,8 +57,7 @@ rebootButton.addEventListener("click", async () => {
   // The body of this function will be executed as a content script inside the
   // current page
   function rebootPage() {
-    var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
-    myAudio.play();
+    audioFeature()
     var element = document.querySelector('#insertedStylesheet');
     if (element) {
       element.parentElement.removeChild(element);
@@ -50,8 +71,7 @@ rebootButton.addEventListener("click", async () => {
     }
   }
   function retroPage() {
-    var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
-    myAudio.play();
+    audioFeature()
     var element = document.querySelector('#insertedStylesheet');
     /*
     var vaporwaveElement = document.querySelector("#insertVaporwaveStylesheet");
