@@ -4,6 +4,11 @@ BackInTime.addEventListener("click", async () => {
     var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
     myAudio.play();
     console.log("button clicked!");
+    if(BackInTime.innerText === "Rewind this page!") {
+      BackInTime.innerText = "Back to the future!"
+    }else {
+      BackInTime.innerText = "Rewind this page!"
+    }
     chrome.runtime.sendMessage({ greeting: "hello" }, function (response) {});
   });
 rebootButton.addEventListener("click", async () => {
