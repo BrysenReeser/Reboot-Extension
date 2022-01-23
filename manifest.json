@@ -4,7 +4,7 @@
     "description": "Reboot any webpage to the oldest css!",
     "version": "1.0.0",
     "author": "Grace Clausen, Brysen Reeser, Bridget Peterkin, Gabriel Clark",
-    "permissions": ["storage", "activeTab", "scripting"],
+    "permissions": ["background","webNavigation","storage", "activeTab", "scripting","tabs"],
     "action": {
         "default_popup":"popup.html",
         "default_icon": {
@@ -21,5 +21,8 @@
     "content_scripts": [{
         "css": ["styles.css"],
         "matches": ["<all_urls>"]
-      }]
+      }],
+      "background": {
+        "service_worker": "background.js"
+      }
 }
