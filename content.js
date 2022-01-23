@@ -4,6 +4,8 @@
  */
 let soundOn = true;
 var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
+var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
+
 let imageshown = "soundOn.png"
 document.getElementById('soundButton').src = imageshown;
 
@@ -43,7 +45,9 @@ BackInTime.addEventListener("click", async () => {
    */
   jamButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    audioManagement("retroJam3.mp3")
+    var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
+    let i = 0
+    audioManagement(bops[0])
   });
 
   /**
@@ -51,7 +55,13 @@ BackInTime.addEventListener("click", async () => {
    */
   retroButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    audioManagement("retroJam1.wav")
+    if(soundOn && retroButton.innerText == "Retro-fy this page!"){
+      audioManagement("retroJam1.wav")
+      retroButton.innerText = "Back to boring"
+    }else {
+      myAudio.pause()
+      retroButton.innerText = "Retro-fy this page!"
+    }
 
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
@@ -84,7 +94,7 @@ BackInTime.addEventListener("click", async () => {
     var vaporwaveElement = document.querySelector("#insertVaporwaveStylesheet");
     var vaporwaveWrapper = document.querySelector("#window");
     */
-    if (element) {
+    if (element) {  
       element.parentElement.removeChild(element);
       /*
       vaporwaveElement.parentElement.removeChild(vaporwaveElement);
