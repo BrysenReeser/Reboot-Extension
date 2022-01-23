@@ -26,7 +26,7 @@ function updateUrl(){
           }
           (async () => {
 
-            console.log(await userAction(activeTab.url, "2006"))
+            console.log(await userAction(activeTab.url, "2005"))
           })()
 
      });
