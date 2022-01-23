@@ -24,6 +24,15 @@ body{
   /* display: flex; */
 }
 
+.sound-button {
+    border-radius: 8px;
+    width:32px; 
+    height:32px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 .glow-on-hover {
     /* width: 220px;
