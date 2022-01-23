@@ -4,7 +4,6 @@
  */
 let soundOn = true;
 var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
-var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
 var SONG = 0;
 let imageshown = "soundOn.png"
 document.getElementById('soundButton').src = imageshown;
