@@ -24,7 +24,7 @@
       }],
     "web_accessible_resources": [
       {
-        "resources": ["fallBack.css"],
+        "resources": ["fallBack.css", "assets/*", "vaperwaveBorder.html"],
         "matches":["<all_urls>"]
       }
     ]

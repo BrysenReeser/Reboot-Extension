@@ -1,12 +1,23 @@
-body {background-color: coral !important;}
+body {
+    background-color: rgb(25, 71, 87) !important;
+    background-image: url("./assets/carVaporwave.jpg");
+}
 
-.main-page-content {
-    background-color: coral !important;
-}
 :any-link {
-  color: green !important;
+  color: rgb(0,137,218) !important;
 }
-#css {
-    color: green !important;
-    background-color: green !important;
+@font-face {
+  font-family: "Msoft" !important;
+  src: url("./assets/M8pt.woff") !important;
 }
+
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: url("./assets/hand.png"), auto !important;
+}* {
+  cursor: url("./assets/cursor.png"), auto !important;
+}
+
+/*
+chrome.runtime.getURL("assets/cursor.png")
+chrome.runtime.getURL("assets/hand.png")
+*/
