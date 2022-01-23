@@ -32,7 +32,7 @@ BackInTime.addEventListener("click", async () => {
       chrome.runtime.sendMessage("Rewind this page!", function (response) {});
       BackInTime.innerText = "Back to the future!"
     }else {
-      audioManagement("backToTheFutureSong.wav")
+      audioManagement("backToTheFutureSong.m4a")
       chrome.runtime.sendMessage("Back to the future!", function (response) {});
       BackInTime.innerText = "Rewind this page!"
     }
