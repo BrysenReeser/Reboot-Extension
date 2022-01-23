@@ -1,6 +1,8 @@
 // js file for project
 navigator.serviceWorker.register('background.js').then(x=>console.log('done', x))
 BackInTime.addEventListener("click", async () => {
+    var myAudio = new Audio(chrome.runtime.getURL("80sRiff.wav"));
+    myAudio.play();
     console.log("button clicked!");
     chrome.runtime.sendMessage({ greeting: "hello" }, function (response) {});
   });
