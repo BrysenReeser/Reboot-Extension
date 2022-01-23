@@ -29,23 +29,19 @@ BackInTime.addEventListener("click", async () => {
   });
 
   
-rebootButton.addEventListener("click", async () => {
+  jamButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if(soundOn){
       myAudio.pause()
-      myAudio = new Audio(chrome.runtime.getURL("retroJam2.wav"));
+      myAudio = new Audio(chrome.runtime.getURL("retroJam3.mp3"));
       myAudio.play();
     }
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: rebootPage,
-    });
   });
   retroButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if(soundOn){
       myAudio.pause()
-      myAudio = new Audio(chrome.runtime.getURL("retroJam2.wav"));
+      myAudio = new Audio(chrome.runtime.getURL("retroJam1.wav"));
       myAudio.play();
     }
     chrome.scripting.executeScript({
