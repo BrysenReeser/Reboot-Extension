@@ -24,5 +24,11 @@
       }],
       "background": {
         "service_worker": "background.js"
+      },
+    "web_accessible_resources": [
+      {
+        "resources": ["fallBack.css","80sRiff.wav"],
+        "matches":["<all_urls>"]
       }
+    ]
 }
