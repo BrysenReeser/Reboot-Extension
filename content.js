@@ -44,20 +44,12 @@ BackInTime.addEventListener("click", async () => {
    */
   jamButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3"]
+    var bops = ["retrojam1.wav","retrojam2.wav","retrojam3.mp3","retrojam4.wav","retrojam5.wav","retrojam6.wav"]
+  
     if(soundOn){
       SONG = (SONG + 1) % bops.length;
       audioManagement(bops[SONG])
       let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if(soundOn && retroButton.innerText == "Retro-fy this page!"){
-        myAudio.pause()
-        myAudio = new Audio(chrome.runtime.getURL("retroJam1.wav"));
-        myAudio.play();
-        retroButton.innerText = "Back to boring"
-      }else {
-        myAudio.pause()
-        retroButton.innerText = "Retro-fy this page!"
-      }
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         function: partypage,
