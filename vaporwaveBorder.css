@@ -1,0 +1,99 @@
+@charset "UTF-8";
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+}
+.button.d-block,
+button.d-block,
+input.d-block {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+}
+@media (max-width: 500px) {
+  .win98 .window {
+    width: 100% !important;
+  }
+}
+.win98 .window {
+  z-index: 100;
+}
+.win98 .window .header .icon {
+  background: rgb(192, 192, 192);
+  background-size: cover;
+}
+.win98 button.close {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+}
+.win98.fluid-height {
+  max-height: 600px;
+}
+.win98.fluid-height,
+.win98.fluid-height .inner,
+.win98.fluid-height .window {
+  height: 100% !important;
+}
+.win98.fluid-height .content-fluid {
+  bottom: 23px;
+  left: 0;
+  position: absolute !important;
+  right: 0;
+  top: 21px;
+}
+.win98.fluid-height .statusbar {
+  bottom: 1px;
+  left: 2px;
+  position: absolute !important;
+  right: 2px;
+}
+.pagination {
+  font-size: 0;
+}
+.pagination button {
+  display: inline-block;
+  min-width: 24px;
+}
+.pagination button i:before {
+  margin: 0;
+}
+.pagination button.active {
+  border-color: grey #dfdfdf #dfdfdf grey;
+  box-shadow: inset 1px 1px 0 0 #000;
+}
+.pagination input {
+  -moz-appearance: textfield;
+  line-height: 17px;
+  text-align: center;
+  width: 30px;
+}
+.pagination input::-webkit-inner-spin-button,
+.pagination input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-bold {
+  font-weight: 700;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#window-about .win98 .content-fluid {
+  bottom: 0;
+}

@@ -27,7 +27,11 @@
       },
     "web_accessible_resources": [
       {
+<<<<<<< HEAD
+        "resources": ["fallBack.css", "assets/*", "vaperwaveBorder.html"],
+=======
         "resources": ["fallBack.css","80sRiff.wav"],
+>>>>>>> 9a1fe0740d9a1b99fb51a6de9a499c0de088cdf4
         "matches":["<all_urls>"]
       }
     ]
