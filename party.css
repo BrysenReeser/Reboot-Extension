@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(25, 71, 87) !important;
+    background-image: url("https://media2.giphy.com/media/5jT0jaNDsM6Ik7X9yq/giphy.gif");
+}
+
+:any-link {
+  color: rgb(0,137,218) !important;
+}
+@font-face {
+  font-family: "Msoft" !important;
+  src: url("./assets/M8pt.woff") !important;
+}
+
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: url("./assets/hand.png"), auto !important;
+}* {
+  cursor: url("./assets/cursor.png"), auto !important;
+}
+#wm-ipp-base{
+  display: 'none' !important;
+  visibility:hidden;
+  height:0
+}
+
+/*
+chrome.runtime.getURL("assets/cursor.png")
+chrome.runtime.getURL("assets/hand.png")
+*/

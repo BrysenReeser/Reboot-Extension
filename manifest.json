@@ -27,7 +27,7 @@
       },
     "web_accessible_resources": [
       {
-        "resources": ["bar.css", "fallBack.css", "assets/*", "vaperwaveBorder.html", "80sRiff.wav"],
+        "resources": ["party.css","bar.css", "fallBack.css", "assets/*", "vaperwaveBorder.html", "80sRiff.wav"],
         "matches":["<all_urls>"]
       }
     ]
