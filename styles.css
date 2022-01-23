@@ -2,13 +2,13 @@ button {
 	margin: 0.5em 0;
 	/* padding: .8em ; */
 	cursor: pointer;
-    color:black;
+  color:black;
 
 	background: #FFFFFF;
 	border: none;
 	border-radius: .4em;
 
-	font-family: "Work Sans", sans-serif;
+  font-family: "Lucida Console", "Courier New", monospace;  
 	font-weight: 500;
 	letter-spacing: 0.04em;
 }
@@ -17,98 +17,69 @@ button {
 
 body{
   font-family: 'Nunito', sans-serif;
-}
-
-.a{color: #E7484F}
-.b{color: #F68B1D}
-.c{color: #FCED00}
-.d{color: #009E4F}
-.e{color: #00AAC3}
-.f{color:  #732982}
-
-
-.container{
-  margin-top: 150px;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.rainbow{
-  background-color: #343A40;
-  border-radius: 4px;  
-  color: #fff;
-  cursor: pointer;
-  padding: 8px 16px;
-  
-}
-
-.rainbow-1:hover{
-   background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-   animation:slidebg 5s linear infinite;
-}
-
-.rainbow-2:hover{
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-  animation:slidebg 2s linear infinite;
-}
-
-.rainbow-3:hover{
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
-  animation:slidebg 2s linear infinite;
-}
-
-.rainbow-4:hover{
-   background-image:     linear-gradient(
-      to right, 
-      #E7484F,
-      #F68B1D, 
-      #FCED00,
-      #009E4F,
-      #00AAC3,
-      #732982
-    );
-  animation:slidebg 2s linear infinite;
+  /* min-width: 100vw; */
+  /* min-height: 100vw; */
+  background-image: url("https://i.pinimg.com/originals/45/e6/b8/45e6b85207aa4af2f8dbd3b76c0525e0.gif");
+  /* display: flex; */
 }
 
 
-.rainbow-5:hover{
-   background-image:     linear-gradient(
-      to right, 
-      #E7484F,
-      #E7484F 16.65%,
-      #F68B1D 16.65%,
-      #F68B1D 33.3%,
-      #FCED00 33.3%,
-      #FCED00 49.95%,
-      #009E4F 49.95%,
-      #009E4F 66.6%,
-      #00AAC3 66.6%,
-      #00AAC3 83.25%,
-      #732982 83.25%,
-      #732982 100%,
-      #E7484F 100%
-     
-     
-     
-    );
-  animation:slidebg 2s linear infinite;
+.glow-on-hover {
+    /* width: 220px;
+    height: 50px; */
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
 }
 
-
-@keyframes slidebg {
-  to {
-    background-position:20vw;
-  }
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
 }
 
-.follow{
-  margin-top: 40px;
+.glow-on-hover:active {
+    color: #fff
 }
 
-.follow a{
-  color: black;
-  padding: 8px 16px;
-  text-decoration: none;
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
