@@ -112,7 +112,7 @@ BackInTime.addEventListener("click", async () => {
     } else {
       document.head.insertAdjacentHTML('beforeend',
       '<link id="insertedStylesheet" rel="stylesheet" type="text/css" href="' + 
-              chrome.runtime.getURL("fallback.css") + '">'
+              chrome.runtime.getURL("fallBack.css") + '">'
       );
       /*
       // Windows 95ing in progress
