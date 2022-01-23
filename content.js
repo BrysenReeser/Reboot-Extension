@@ -5,11 +5,12 @@ BackInTime.addEventListener("click", async () => {
     myAudio.play();
     console.log("button clicked!");
     if(BackInTime.innerText === "Rewind this page!") {
+      chrome.runtime.sendMessage("Rewind this page!", function (response) {});
       BackInTime.innerText = "Back to the future!"
     }else {
+      chrome.runtime.sendMessage("Back to the future!", function (response) {});
       BackInTime.innerText = "Rewind this page!"
     }
-    chrome.runtime.sendMessage({ greeting: "hello" }, function (response) {});
   });
 rebootButton.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });

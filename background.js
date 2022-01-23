@@ -1,9 +1,14 @@
 var toHere = "google.com"
 var rewind = true
-var lastModernUrl = "https://yahoo.com"
+var lastModernUrl = "https://www.google.com"
 
 chrome.runtime.onMessage.addListener((request, sender, reply) => {
-        if(rewind) {
+        console.log(request)
+        if(request == "Rewind this page!" && rewind == false) {
+            console.log("exit error")
+            rewind = false;
+            return lastModernUrl;
+        }else if(rewind) {
             rewind = false;
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 var activeTab = tabs[0];
