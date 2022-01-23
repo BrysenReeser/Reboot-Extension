@@ -4,7 +4,7 @@
     "description": "Reboot any webpage to the oldest css!",
     "version": "1.0.0",
     "author": "Grace Clausen, Brysen Reeser, Bridget Peterkin, Gabriel Clark",
-    "permissions": ["storage", "activeTab", "scripting"],
+    "permissions": ["background","webNavigation","storage", "activeTab", "scripting","tabs"],
     "action": {
         "default_popup":"popup.html",
         "default_icon": {
@@ -22,9 +22,16 @@
         "css": ["styles.css"],
         "matches": ["<all_urls>"]
       }],
+      "background": {
+        "service_worker": "background.js"
+      },
     "web_accessible_resources": [
       {
+<<<<<<< HEAD
         "resources": ["fallBack.css", "assets/*", "vaperwaveBorder.html"],
+=======
+        "resources": ["fallBack.css","80sRiff.wav"],
+>>>>>>> 9a1fe0740d9a1b99fb51a6de9a499c0de088cdf4
         "matches":["<all_urls>"]
       }
     ]
